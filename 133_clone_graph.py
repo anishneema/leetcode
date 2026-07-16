@@ -17,17 +17,19 @@ class Solution:
             if node in visited_set:
                 return visited_set[node]
             
-            node_copy = Node(node.val)
-
-            visited_set[node] = node_copy
+            copy_node = Node(node.val)
+            visited_set[node] = copy_node
 
             for nodes in node.neighbors:
 
-                node_copy.neighbors.append(dfs(nodes))
+                
+
+                copy_node.neighbors.append(dfs(nodes))
+
             
-            return node_copy
+            return copy_node
         
         if node:
             return dfs(node)
-
+        
         return node
